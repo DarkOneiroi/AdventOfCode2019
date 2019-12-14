@@ -2,7 +2,7 @@
 Day001 Part2
 https://adventofcode.com/2019/day/1
 /*
-Odpoved je
+Odpoved je 5305097
 */
 
 --- Day 2: 1202 Program Alarm ---
