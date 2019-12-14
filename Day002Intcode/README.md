@@ -1,6 +1,6 @@
 # AdventOfCode2019
 Day001 Part2
-https://adventofcode.com/2019/day/1
+https://adventofcode.com/2019/day/2
 /*
 Odpoved je 5305097
 */
