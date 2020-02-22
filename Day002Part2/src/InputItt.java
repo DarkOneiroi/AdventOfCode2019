@@ -1,32 +1,45 @@
 public class InputItt {
-    public void InputItt(){
-        int noun = 0;
-        int verb = 0;
-        int result;
-        int output = 19690720;
+    private int noun = 0;
+    private int verb = 0;
+    private int result;
+    private int output;
 
-        IntCodeComputer intCode = new IntCodeComputer();
-        while (noun < 100){//itteration of nouns
+    public InputItt(int output) {
+        this.output = output;
+        InputIttCompute();
+    }
+
+    private void InputIttCompute() {
+        while (noun < 100) {//itteration of nouns
             verb = 0;//reset of verbs in next noun loop
-            while (verb < 100){//itteration of verbs
-                intCode.setInputVerb(verb);
-                intCode.IntCode();
+            while (verb < 100) {//itteration of verbs
+                IntCodeComputer intCode = new IntCodeComputer(noun, verb);
                 result = intCode.getResult();
-                if(result == output) {
-                    noun--;
-                    System.out.printf("Vysledek noun: %d a verb: %d, celkovy output: %d", noun, verb, result);
-                    break;
+                if (result == output) {
+                    break;//end of verb loop before itteration, otherwise you have to decrease verb by one
+                } else {
+                    verb++;
                 }
-                verb++;
             }
-            intCode.setInputNoun(noun);
-            intCode.IntCode();
+            IntCodeComputer intCode = new IntCodeComputer(noun, verb);
             result = intCode.getResult();
-            if(result == output) {
-                System.out.printf("Vysledek noun: %d a verb: %d, celkovy output: %d", (noun - 1), verb, result);
-                break;
+            if (result == output) {
+                break;//end of noun loop before itteration, otherwise you have to decrease verb by one
+            } else {
+                noun++;
             }
-            noun++;
         }
+    }
+
+    public int getNoun() {
+        return noun;
+    }
+
+    public int getVerb() {
+        return verb;
+    }
+
+    public int getResult() {
+        return result;
     }
 }
